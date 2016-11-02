@@ -12,9 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return view('home');
+    } else {
+        // not logged-in
+        return view('welcome');
+    }
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+    //Categories
+    Route::get('/category/create', 'CategoryController@create_view');
+    Route::post('/category/create', 'CategoryController@create');
+});
