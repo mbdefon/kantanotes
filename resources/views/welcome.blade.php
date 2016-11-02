@@ -8,6 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+        <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
@@ -75,17 +76,21 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
+    <script type="application/javascript">
+        var showText = function (target, message, index, interval) {
+            if (index < message.length) {
+                $(target).append(message[index++]);
+                setTimeout(function () { showText(target, message, index, interval); }, interval);
+            }
+        }
+        $(function () {
+            showText(".title", "Kantanotes", 0, 300);
+        });
+    </script>
     </body>
 </html>
