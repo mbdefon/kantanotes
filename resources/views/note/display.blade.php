@@ -40,7 +40,7 @@
                             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">{{$note->title}}</h4>
                             <div class=" pull-right">
                                 <a href="{{url('note/'.$note->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>
+                                <a href="{{url('note/'.$note->id.'/delete')}}" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>

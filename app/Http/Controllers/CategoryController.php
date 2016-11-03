@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Note;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -36,6 +37,11 @@ class CategoryController extends Controller
             'id'         => 'required',
         ]);
         $category = Category::where('id',$request->id)->first();
+        $notes = Note::where('category_id',$category->id)->get();
+        foreach ($notes as $note){
+            $note->category_id = 0;
+            $note->save();
+        }
         $category->delete();
         return redirect('/')->with('status', 'Category deleted!');
     }

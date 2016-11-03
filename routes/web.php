@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{id}/notes','NoteController@index');
     Route::get('note/{id}','NoteController@display');
     Route::get('note/{id}/edit','NoteController@edit_view');
+    Route::get('note/{id}/delete','NoteController@delete');
     Route::post('/note/save','NoteController@save');
 
     //Links

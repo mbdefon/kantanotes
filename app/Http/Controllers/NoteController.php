@@ -16,7 +16,7 @@ class NoteController extends Controller
     }
 
     public function index(Request $request, $id){
-        $notes = Note::where('category_id',$id)->get();
+        $notes = Note::where('category_id',$id)->where('user_id',$request->user(0)->id)->get();
         if ($id !=0 ) {
             $category = Category::where('id', $id)->first();
         } else {
@@ -47,8 +47,9 @@ class NoteController extends Controller
 
     public function create(Request $request){
         $this->validate($request, [
-            'note_id'         => 'required|integer',
-            'url'             => 'required|max:255',
+            'category_id'         => 'required|integer',
+            'title'             => 'required|max:255',
+            'description'             => 'required',
         ]);
         $note = new Note($request->all());
         $note->user_id = $request->user()->id;
@@ -72,8 +73,14 @@ class NoteController extends Controller
         return redirect('/note/'.$note->id)->with('status', 'Note updated!');
     }
 
-    public function delete(Request $request){
-        
+    public function delete(Request $request, $id){
+        $note = Note::where('id',$id)->first();
+        $links = Link::where('note_id',$note->id)->get();
+        foreach ($links as $link){
+            $link->delete();
+        }
+        $note->delete();
+        return redirect('/')->with('status', 'Note deleted!');
     }
 
 
