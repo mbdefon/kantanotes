@@ -37,4 +37,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/note/create','NoteController@create');
     Route::get('/{id}/notes','NoteController@index');
     Route::get('note/{id}','NoteController@display');
+    Route::get('note/{id}/edit','NoteController@edit_view');
+    Route::post('/note/save','NoteController@save');
+
+    //Links
+    Route::post('/link/create','LinkController@create');
+    Route::post('/link/delete','LinkController@delete');
+
 });

@@ -18,7 +18,7 @@ class Note extends Model
 
     public function links()
     {
-        return $this->hasMany('App\Link');
+        return $this->hasMany('App\Link','note_id','id');
     }
 
     public function user()
