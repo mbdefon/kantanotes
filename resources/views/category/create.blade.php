@@ -19,6 +19,8 @@
                         <form method="post" action="{{url('category/create')}} " files="true" enctype="multipart/form-data">
                             {!! csrf_field() !!}
 
+                            @include('common.error')
+
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="Name of the category" name="name">

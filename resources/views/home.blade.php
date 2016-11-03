@@ -1,6 +1,22 @@
 @extends('layouts.logged')
 
 @section('app-content')
+
+<div class="col-md-9 col-sm-9 col-xs-12">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+            <a href="{{url('note/create')}}">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Create a new note
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="col-md-9 col-sm-9 col-xs-12">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">

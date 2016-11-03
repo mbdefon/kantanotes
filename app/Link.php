@@ -8,7 +8,7 @@ class Link extends Model
 {
 
     protected $fillable = [
-        'url','description','note_id'
+        'url'
     ];
 
     public function note()

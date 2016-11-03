@@ -25,10 +25,10 @@
             <p class="list-group-item active">
                 My Categories
             </p>
-            <a href="#" class="list-group-item">Default</a>
+            <a href="{{url('0/notes')}}" class="list-group-item">Default</a>
             @if(isset($categories))
                 @foreach ($categories as $category)
-                    <a href="#" class="list-group-item">{{$category->name}}</a>
+                    <a href="{{url($category->id.'/notes')}}" class="list-group-item">{{$category->name}}</a>
                 @endforeach
             @endif
         </div>
