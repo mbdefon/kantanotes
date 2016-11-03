@@ -28,4 +28,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Categories
     Route::get('/category/create', 'CategoryController@create_view');
     Route::post('/category/create', 'CategoryController@create');
+    Route::get('/category/delete', 'CategoryController@delete_view');
+    Route::post('/category/delete', 'CategoryController@delete');
 });

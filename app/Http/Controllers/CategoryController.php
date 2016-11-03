@@ -13,6 +13,11 @@ class CategoryController extends Controller
         return view('category.create');
     }
 
+    public function delete_view(Request $request){
+        $del_categories = Category::where('user_id',$request->user()->id)->get();
+        return view('category.delete',['del_categories' => $del_categories]);
+    }
+
     //------Functions----
     public function create(Request $request){
         $this->validate($request, [
@@ -23,6 +28,15 @@ class CategoryController extends Controller
         $category->user_id = $request->user()->id;
         $category->save();
 
-        return redirect('/')->with('status', 'Category created!');;
+        return redirect('/')->with('status', 'Category created!');
+    }
+
+    public function delete(Request $request){
+        $this->validate($request, [
+            'id'         => 'required',
+        ]);
+        $category = Category::where('id',$request->id)->first();
+        $category->delete();
+        return redirect('/')->with('status', 'Category deleted!');
     }
 }

@@ -32,6 +32,15 @@
                 @endforeach
             @endif
         </div>
+
+        <a href="{{url('category/delete')}}">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    Delete a category
+                </div>
+            </div>
+        </a>
     </div>
 
     @yield('app-content')
